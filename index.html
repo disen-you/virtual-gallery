@@ -3,185 +3,186 @@
 
 <head>
 
-    <!-- ===========================
-         META
-    ============================ -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Disen.You | Katrina Felicidario</title>
+    <title>Disen.You | Virtual Art Gallery</title>
 
-    <meta name="description"
-        content="Explore the creative portfolio of Katrina Felicidario, a local artist from Naga, through Disen.You. Discover handcrafted artworks, collections, and commission opportunities.">
-
-    <meta name="keywords"
-        content="Disen.You, Katrina Felicidario, Artist, Naga, Portfolio, Paintings, Illustration, Art Commission">
-
-    <meta name="author" content="Katrina Felicidario">
-
-    <!-- ===========================
-         FAVICON
-    ============================ -->
-
-    <link rel="icon" href="assets/images/logo/logo.png">
-
-    <!-- ===========================
-         GOOGLE FONTS
-    ============================ -->
+    <!-- Fonts -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <!-- ===========================
-         CSS
-    ============================ -->
+    <!-- CSS -->
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/hero.css">
+    <link rel="stylesheet" href="assets/css/artist.css">
+    <link rel="stylesheet" href="assets/css/gallery.css">
+    <link rel="stylesheet" href="assets/css/collections.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
 
 <body>
 
-    <!-- ===========================
-         LOADER
-    ============================ -->
+<!-- ========================= -->
+<!-- LOADING SCREEN -->
+<!-- ========================= -->
 
-    <div id="loader"></div>
+<div id="loader">
 
-    <!-- ===========================
-         INTRO POPUP
-    ============================ -->
+    <div class="loader-content">
 
-    <div id="intro-popup"></div>
+        <img src="assets/images/logo/logo.png" alt="Disen.You Logo">
 
-    <!-- ===========================
-         HEADER
-    ============================ -->
+        <h1>DISEN.YOU</h1>
 
-    <header class="header">
+        <p>Wearable Art For Everyone</p>
 
-        <div class="container">
+        <span>Loading...</span>
 
-            <nav class="navbar">
+    </div>
 
-                <a href="#hero" class="logo">
-                    <img src="assets/images/logo/logo.png" alt="Disen.You Logo">
-                </a>
+</div>
 
-                <ul class="nav-links">
-                    <li><a href="#artist">Artist</a></li>
-                    <li><a href="#featured">Gallery</a></li>
-                    <li><a href="#collections">Collections</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
 
-                <a href="#contact" class="btn-primary">
-                    Commission
-                </a>
+<!-- ========================= -->
+<!-- POPUP -->
+<!-- ========================= -->
 
-            </nav>
+<div id="artist-popup">
 
-        </div>
+    <div class="popup-card">
 
-    </header>
+        <button id="closePopup">&times;</button>
 
-    <!-- ===========================
-         MAIN
-    ============================ -->
+        <h2>Meet the Artist!</h2>
 
-    <main>
+        <p>
 
-        <!-- HERO -->
+Hi, I'm Katrina Felicidario, a local artist from Naga and the creator behind Disen.You.
 
-        <section id="hero" class="hero">
+Art has always been my way of telling stories, expressing emotions, and turning simple ideas into something meaningful. Every artwork in this gallery reflects a piece of that journey.
 
-            <div class="container hero-container">
+I'm so glad you're here. Take a look around, explore each collection, and I hope you'll find something that inspires you.
 
-                <div class="hero-content">
+Welcome to my virtual gallery! :)
 
-                    <p class="hero-subtitle">
-                        Local Artist • Naga City
-                    </p>
+        </p>
 
-                    <h1>
-                        Where Creativity
-                        <span>Becomes Connection.</span>
-                    </h1>
+        <p class="signature">
 
-                    <p class="hero-description">
-                        Welcome to Disen.You, the creative portfolio of Katrina
-                        Felicidario. Every artwork tells a story inspired by
-                        emotion, nature, and everyday life.
-                    </p>
+            Every piece has a story. Thank you for taking the time to discover mine.
 
-                    <div class="hero-buttons">
+        </p>
 
-                        <a href="#featured" class="btn-primary">
-                            Explore Gallery
-                        </a>
+        <button id="enterGallery">
 
-                        <a href="#contact" class="btn-secondary">
-                            Commission Me
-                        </a>
+            Enter Gallery
 
-                    </div>
+        </button>
 
-                </div>
+    </div>
 
-                <div class="hero-image">
+</div>
 
-                    <img src="assets/images/hero/hero-main.webp"
-                        alt="Featured Artwork">
 
-                </div>
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
 
-            </div>
+<header>
 
-        </section>
+<div class="logo">
 
-        <!-- MEET THE ARTIST -->
+<img src="assets/images/logo/logo.png">
 
-        <section id="artist"></section>
+<span>Disen.You</span>
 
-        <!-- ABOUT -->
+</div>
 
-        <section id="about"></section>
+<nav>
 
-        <!-- FEATURED -->
+<a href="#">About</a>
 
-        <section id="featured"></section>
+<a href="#">Gallery</a>
 
-        <!-- COLLECTIONS -->
+<a href="#">Contact</a>
 
-        <section id="collections"></section>
+</nav>
 
-        <!-- PINTEREST -->
+</header>
 
-        <section id="pinterest"></section>
 
-        <!-- CONTACT -->
 
-        <section id="contact"></section>
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
 
-    </main>
+<section class="hero">
 
-    <!-- ===========================
-         FOOTER
-    ============================ -->
+<div class="hero-content">
 
-    <footer>
+<h1>
 
-    </footer>
+Wearable Art
 
-    <!-- ===========================
-         JAVASCRIPT
-    ============================ -->
+For Everyone
 
-    <script src="assets/js/script.js"></script>
+</h1>
+
+<p>
+
+A virtual gallery showcasing paintings, handcrafted clay creations, face painting works, and commissioned pieces by Katrina Felicidario.
+
+</p>
+
+<a href="#gallery" class="hero-btn">
+
+Explore Gallery
+
+</a>
+
+</div>
+
+</section>
+
+
+
+
+
+<!-- NEXT SECTIONS -->
+
+<section id="about"></section>
+
+<section id="featured"></section>
+
+<section id="gallery"></section>
+
+<section id="contact"></section>
+
+<footer></footer>
+
+
+
+
+<script src="assets/js/loader.js"></script>
+
+<script src="assets/js/popup.js"></script>
+
+<script src="assets/js/navbar.js"></script>
+
+<script src="assets/js/animations.js"></script>
+
+<script src="assets/js/script.js"></script>
 
 </body>
 
