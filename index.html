@@ -2,19 +2,29 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Disen.You | Virtual Art Gallery</title>
 
-    <!-- Fonts -->
+    <meta name="description"
+        content="Explore the official virtual gallery of Katrina Felicidario. Original paintings, commissioned artworks, and creative stories behind every masterpiece.">
+
+    <link rel="icon" href="images/logo.png">
+
+    <!-- Google Fonts -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
     <!-- CSS -->
 
@@ -35,105 +45,99 @@
 
 <body>
 
-<!-- ========================= -->
-<!-- LOADING SCREEN -->
-<!-- ========================= -->
+   <!-- ================================= -->
+    <!-- LOADING SCREEN -->
+    <!-- ================================= -->
 
-<div id="loader">
+    <div id="loader">
 
-    <div class="loader-content">
+        <img src="images/logo.png" alt="Disen.You Logo">
 
-        <img src="assets/images/logo/logo.png" alt="Disen.You Logo">
-
-        <h1>DISEN.YOU</h1>
-
-        <p>Wearable Art For Everyone</p>
-
-        <span>Loading...</span>
+        <h2>Disen.You</h2>
 
     </div>
 
-</div>
 
+    <!-- ================================= -->
+    <!-- MEET THE ARTIST POPUP -->
+    <!-- ================================= -->
 
-<!-- ========================= -->
-<!-- POPUP -->
-<!-- ========================= -->
+    <div id="artistPopup" class="popup">
 
-<div id="artist-popup">
+        <div class="popup-content">
 
-    <div class="popup-card">
+            <button id="closePopup">
 
-        <button id="closePopup">&times;</button>
+                <i class="fas fa-times"></i>
 
-        <h2>Meet the Artist!</h2>
+            </button>
 
-        <p>
+            <img src="images/katrina.png" alt="Katrina Felicidario">
 
-Hi, I'm Katrina Felicidario, a local artist from Naga and the creator behind Disen.You.
+            <h2>Hi, I'm Kat Felicidario!</h2>
 
-Art has always been my way of telling stories, expressing emotions, and turning simple ideas into something meaningful. Every artwork in this gallery reflects a piece of that journey.
+            <p>
 
-I'm so glad you're here. Take a look around, explore each collection, and I hope you'll find something that inspires you.
+                A local artist from Naga and the creative soul behind
+                <strong>Disen.You.</strong>
 
-Welcome to my virtual art gallery! :)
+                Every artwork you’ll discover here carries a story,
+                an emotion, and a little piece of my heart.
 
-        </p>
+                Thank you for visiting my virtual gallery.
 
-        <p class="signature">
+                I hope every brushstroke inspires you as much as creating
+                them inspired me.
 
-            Every piece has a story. Thank you for taking the time to discover mine.
+            </p>
 
-        </p>
+            <button id="enterGallery">
 
-        <button id="enterGallery">
+                Enter Gallery
 
-            Enter Gallery
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- ========================= -->
-<!-- HEADER -->
-<!-- ========================= -->
-
-<header>
-
-<div class="logo">
-
-<img src="assets/images/logo/logo.png">
-
-<span>Disen.You</span>
-
-</div>
-
-<nav>
-
-<a href="#">About</a>
-
-<a href="#">Gallery</a>
-
-<a href="#">Contact</a>
-
-        </nav>
-
-        <div class="menu-btn">
-
-            <span></span>
-
-            <span></span>
-
-            <span></span>
+            </button>
 
         </div>
 
     </div>
 
-</header>
+
+
+    <!-- ================================= -->
+    <!-- HEADER -->
+    <!-- ================================= -->
+
+    <header>
+
+        <div class="container">
+
+            <a href="#" class="logo">
+
+                <img src="images/logo/logo.png" alt="Disen.You Logo">
+
+            </a>
+
+            <nav>
+
+                <ul>
+
+                    <li><a href="#about">About</a></li>
+
+                    <li><a href="#gallery">Gallery</a></li>
+
+                    <li><a href="#contact">Contact</a></li>
+
+                </ul>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <main>
 
 
 
