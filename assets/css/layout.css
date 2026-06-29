@@ -1,37 +1,271 @@
+/* ==========================================
+   GLOBAL LAYOUT
+   Disen.You Virtual Gallery
+========================================== */
+
+html{
+    scroll-behavior:smooth;
+}
+
 body{
 
-    background:#0B0B0B;
+    background:var(--black);
 
-    color:white;
+    color:var(--text);
+
+    font-family:var(--body);
+
+    overflow-x:hidden;
+
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
 
 }
 
-main{
+/* ==========================================
+   CONTAINER
+========================================== */
 
-    width:100%;
+.container{
+
+    width:min(92%,1280px);
+
+    margin:auto;
 
 }
+
+/* ==========================================
+   SECTIONS
+========================================== */
 
 section{
 
     position:relative;
 
-}
+    width:100%;
 
-.hero,
-#about,
-#featured,
-#gallery,
-#contact{
-
-    min-height:100vh;
+    padding:120px 0;
 
 }
+
+section:first-of-type{
+
+    padding-top:0;
+
+}
+
+/* ==========================================
+   HEADINGS
+========================================== */
+
+h1,
+h2,
+h3,
+h4{
+
+    font-family:var(--heading);
+
+    font-weight:600;
+
+    line-height:1.1;
+
+    color:var(--white);
+
+}
+
+h1{
+
+    font-size:clamp(3rem,7vw,6rem);
+
+}
+
+h2{
+
+    font-size:clamp(2.4rem,5vw,4rem);
+
+}
+
+h3{
+
+    font-size:1.6rem;
+
+}
+
+p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:16px 38px;
+
+    border-radius:50px;
+
+    background:var(--gold);
+
+    color:#111;
+
+    font-weight:600;
+
+    transition:all .35s ease;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-hover);
+
+}
+
+/* ==========================================
+   LOADER
+========================================== */
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#0b0b0b;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+    transition:.8s;
+
+}
+
+#loader.hide{
+
+    opacity:0;
+
+    visibility:hidden;
+
+}
+
+.loader-content{
+
+    text-align:center;
+
+    animation:loaderFade 1s ease;
+
+}
+
+.loader-content img{
+
+    width:140px;
+
+    margin:auto;
+
+    margin-bottom:30px;
+
+}
+
+.loader-content h1{
+
+    font-size:3rem;
+
+    letter-spacing:6px;
+
+}
+
+.loader-content p{
+
+    margin-top:10px;
+
+    letter-spacing:3px;
+
+}
+
+.loader-content span{
+
+    display:block;
+
+    margin-top:25px;
+
+    color:var(--gold);
+
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#111;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--gold);
+
+    border-radius:20px;
+
+}
+
+/* ==========================================
+   SELECTION
+========================================== */
 
 ::selection{
 
     background:var(--gold);
 
-    color:black;
+    color:#111;
+
+}
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+@keyframes loaderFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
 
 }
