@@ -1,1 +1,106 @@
+header{
 
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px 8%;
+
+    z-index:1000;
+
+    transition:.35s ease;
+
+}
+
+header.scrolled{
+
+    background:rgba(15,15,15,.65);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo{
+
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+}
+
+.logo img{
+
+    width:48px;
+
+}
+
+.logo span{
+
+    font-family:var(--heading);
+
+    font-size:1.8rem;
+
+    letter-spacing:1px;
+
+}
+
+nav{
+
+    display:flex;
+    gap:45px;
+
+}
+
+nav a{
+
+    position:relative;
+
+    font-size:.95rem;
+
+    letter-spacing:1px;
+
+    transition:.3s;
+
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-8px;
+
+    left:0;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--gold);
+
+    transition:.3s;
+
+}
+
+nav a:hover{
+
+    color:var(--gold);
+
+}
+
+nav a:hover::after{
+
+    width:100%;
+
+}
