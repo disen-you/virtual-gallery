@@ -1,1 +1,37 @@
+body{
 
+    background:#0B0B0B;
+
+    color:white;
+
+}
+
+main{
+
+    width:100%;
+
+}
+
+section{
+
+    position:relative;
+
+}
+
+.hero,
+#about,
+#featured,
+#gallery,
+#contact{
+
+    min-height:100vh;
+
+}
+
+::selection{
+
+    background:var(--gold);
+
+    color:black;
+
+}
