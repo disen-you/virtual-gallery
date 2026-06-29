@@ -1,0 +1,92 @@
+/* ========================================
+   RESET
+======================================== */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    background:#ffffff;
+
+    color:#111111;
+
+    overflow-x:hidden;
+
+    line-height:1.7;
+}
+
+/* ========================================
+   VARIABLES
+======================================== */
+
+:root{
+
+    --white:#ffffff;
+
+    --black:#111111;
+
+    --accent:#C9A96E;
+
+    --light:#F7F5F2;
+
+    --gray:#777777;
+
+    --container:1200px;
+
+    --radius:16px;
+
+    --transition:.4s ease;
+
+}
+
+/* ========================================
+   GLOBAL
+======================================== */
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+.container{
+
+    width:min(90%,1200px);
+
+    margin:auto;
+
+}
+
+section{
+
+    padding:120px 0;
+
+}
