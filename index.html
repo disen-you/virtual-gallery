@@ -4,717 +4,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DISEN.YOU is a premium virtual art gallery by Kat Felicidario showcasing wearable art, clay accessories, and commissioned works.">
+    <title>DISEN.YOU | Virtual Art Gallery</title>
 
-    <title>Disen.You | Virtual Art Gallery</title>
-
-    <meta name="description"
-        content="Explore the official virtual gallery of Katrina Felicidario. Original paintings, commissioned artworks, and creative stories behind every masterpiece.">
-
-    <link rel="icon" href="images/logo.png">
-
-    <!-- Google Fonts -->
-
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Parisienne&display=swap" rel="stylesheet">
 
     <!-- CSS -->
-
-<link rel="stylesheet" href="assets/css/reset.css">
-<link rel="stylesheet" href="assets/css/variables.css">
-<link rel="stylesheet" href="assets/css/layout.css">
-<link rel="stylesheet" href="assets/css/header.css">
-<link rel="stylesheet" href="assets/css/popup.css">
-<link rel="stylesheet" href="assets/css/about.css">
-<link rel="stylesheet" href="assets/css/featured.css">
-<link rel="stylesheet" href="assets/css/collections.css">
-<link rel="stylesheet" href="assets/css/gallery.css">
-<link rel="stylesheet" href="assets/css/contact.css">
-<link rel="stylesheet" href="assets/css/footer.css">
-<link rel="stylesheet" href="assets/css/responsive.css">
-
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/header.css">
+    <link rel="stylesheet" href="assets/css/hero.css">
+    <link rel="stylesheet" href="assets/css/artist.css">
+    <link rel="stylesheet" href="assets/css/gallery.css">
+    <link rel="stylesheet" href="assets/css/gallery-modal.css">
+    <link rel="stylesheet" href="assets/css/artist-popup.css">
+    <link rel="stylesheet" href="assets/css/collections.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 
-<body>
-
-   <!-- ================================= -->
-    <!-- LOADING SCREEN -->
-    <!-- ================================= -->
-
-    <div id="loader">
-
-        <img src="images/logo.png" alt="Disen.You Logo">
-
-        <h2>Disen.You</h2>
-
-    </div>
-
-
-    <!-- ================================= -->
-    <!-- MEET THE ARTIST POPUP -->
-    <!-- ================================= -->
-
-    <div id="artistPopup" class="popup">
-
-        <div class="popup-content">
-
-            <button id="closePopup">
-
-                <i class="fas fa-times"></i>
-
-            </button>
-
-            <img src="images/katrina.png" alt="Katrina Felicidario">
-
-            <h2>Hi, I'm Kat Felicidario!</h2>
-
-            <p>
-
-                A local artist from Naga and the creative soul behind
-                <strong>Disen.You.</strong>
-
-                Every artwork you’ll discover here carries a story,
-                an emotion, and a little piece of my heart.
-
-                Thank you for visiting my virtual gallery.
-
-                I hope every brushstroke inspires you as much as creating
-                them inspired me.
-
-            </p>
-
-            <button id="enterGallery">
-
-                Enter Gallery
-
-            </button>
-
+<body class="no-scroll loading">
+    <div id="loader" class="loader-overlay">
+        <div class="loader-content">
+            <img src="assets/images/logo/logo.png" alt="Disen.You logo" class="loader-logo">
         </div>
-
     </div>
 
-
-
-    <!-- ================================= -->
-    <!-- HEADER -->
-    <!-- ================================= -->
+    <div id="artist-popup" class="popup-backdrop hidden">
+        <div class="popup-card">
+            <button id="closePopup" class="popup-close" aria-label="Close">&times;</button>
+            <div class="popup-inner">
+                <div class="popup-visual popup-restaurant">
+                    <img src="assets/images/artist/restaurant-bg.svg" alt="Restaurant background art" loading="lazy">
+                    <img class="popup-portrait" src="assets/images/artist/artist.jpg" alt="Portrait of Kat Felicidario" loading="lazy">
+                </div>
+                <div class="popup-copy popup-girly-font">
+                    <p class="section-label">Meet the Artist</p>
+                    <h2>Every piece begins with a feeling.</h2>
+                    <p>Hello, I'm Kat Felicidario, the artist behind Disen.You. Every artwork begins with a feeling, a memory, or a quiet moment worth preserving. I invite you to explore my virtual gallery.</p>
+                    <p class="signature">Every piece has a story. Thank you for taking the time to discover mine.</p>
+                    <button id="enterGallery" class="button button-primary">Enter Gallery</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <header>
-
-        <div class="container">
-
-            <a href="#" class="logo">
-
-                <img src="images/logo/logo.png" alt="Disen.You Logo">
-
-            </a>
-
-            <nav>
-
-                <ul>
-
-                    <li><a href="#about">About</a></li>
-
-                    <li><a href="#gallery">Gallery</a></li>
-
-                    <li><a href="#contact">Contact</a></li>
-
-                </ul>
-
-            </nav>
-
+        <div class="logo">
+            <img src="assets/images/logo/logo.png" alt="Disen.You logo">
+            <span>Disen.You</span>
         </div>
-
+        <nav>
+            <a href="#about">About</a>
+            <a href="#collections">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
     </header>
 
-
-
     <main>
-
-
-
-
-
-<!-- NEXT SECTIONS -->
-
-```html
-        <!-- ================================= -->
-        <!-- ABOUT DISEN.YOU -->
-        <!-- ================================= -->
-
-        <section id="about" class="hero">
-
+        <section class="hero reveal about-hero" id="about">
             <div class="container hero-grid">
-
-                <div class="hero-text">
-
-                    <span class="subtitle">
-                        Welcome to Disen.You
-                    </span>
-
-                    <h1>
-                        Where Every Brushstroke
-                        Tells A Story
-                    </h1>
-
-                    <p>
-
-                        Disen.You is the official virtual gallery of
-                        Katrina Felicidario, a local artist from Naga,
-                        dedicated to creating artworks that capture
-                        emotion, memories, and meaningful moments.
-
-                    </p>
-
-                    <p>
-
-                        Every painting is created with passion,
-                        allowing each collector to own something
-                        truly personal and timeless.
-
-                    </p>
-
-                    <a href="#gallery" class="btn">
-
-                        Explore Gallery
-
-                    </a>
-
+                <div class="hero-copy">
+                    <p class="section-label">About Disen.You</p>
+                    <h1>Where every brushstroke tells a story.</h1>
+                    <p>Disen.You celebrates stories, memories, and emotions through art. Every piece is thoughtfully created to inspire, connect, and become part of someone's journey.</p>
+                    <a href="#collections" class="button button-secondary">Explore Gallery</a>
                 </div>
-
-
-                <div class="hero-image">
-
-                    <img src="images/hero-artwork.jpg"
-                        alt="Featured Artwork">
-
+                <div class="hero-media">
+                    <div class="visual-card about-feature-card">
+                        <img src="assets/images/hero/hero-main.webp" alt="Featured wearable art" loading="lazy">
+                        <div class="feature-overlay">
+                            <p class="section-label">Featured Artwork</p>
+                            <h3>“Eternal Thread”</h3>
+                            <p class="feature-meta">Hand-painted canvas & natural fibers · 2026</p>
+                            <button class="button button-primary" data-view-index="0">View Artwork →</button>
+                        </div>
+                    </div>
                 </div>
-
             </div>
-
         </section>
 
-
-
-        <!-- ================================= -->
-        <!-- FEATURED ARTWORK -->
-        <!-- ================================= -->
-
-        <section id="featured">
-
+        <section id="collections" class="collections reveal">
             <div class="container">
-
-                <div class="section-title">
-
-                    <span>Featured Artwork</span>
-
-                    <h2>
-                        The Artwork Of The Month
-                    </h2>
-
+                <div class="section-header">
+                    <p class="section-label">Gallery Collections</p>
+                    <h2>Three curated paths to explore.</h2>
                 </div>
-
-
-                <div class="featured-grid">
-
-                    <div class="featured-description">
-
-                        <h3>
-                            "Echoes of Serenity"
-                        </h3>
-
-                        <p>
-
-                            Inspired by quiet mornings and peaceful
-                            landscapes, this artwork reflects the calm
-                            that can be found even during life's busiest
-                            seasons.
-
-                        </p>
-
-                        <p>
-
-                            Soft textures, expressive brushstrokes,
-                            and natural colors come together to create
-                            a piece that invites viewers to slow down,
-                            breathe, and simply appreciate the moment.
-
-                        </p>
-
-                        <a href="#gallery" class="btn">
-
-                            View Collection
-
-                        </a>
-
-                    </div>
-
-
-                    <div class="featured-image">
-
-                        <img src="images/featured.jpg"
-                            alt="Featured Painting">
-
-                    </div>
-
+                <div class="collections-grid">
+                    <article class="collection-card" data-category="art-commissions" style="background-image:url('assets/images/hero/hero-main.webp');">
+                        <div class="collection-overlay"></div>
+                        <div class="collection-content">
+                            <span>Art Commissions</span>
+                            <h3>Created to carry a story.</h3>
+                            <button class="collection-button" data-category="art-commissions">Explore Collection →</button>
+                        </div>
+                    </article>
+                    <article class="collection-card" data-category="face-painting" style="background-image:url('assets/images/artist/artist.jpg');">
+                        <div class="collection-overlay"></div>
+                        <div class="collection-content">
+                            <span>Face Painting Works</span>
+                            <h3>Expressive looks with soft detail.</h3>
+                            <button class="collection-button" data-category="face-painting">Explore Collection →</button>
+                        </div>
+                    </article>
+                    <article class="collection-card" data-category="clay-accessories" style="background-image:url('assets/images/hero/hero-main.webp');">
+                        <div class="collection-overlay"></div>
+                        <div class="collection-content">
+                            <span>Clay Accessories</span>
+                            <h3>Minimal sculptural pieces.</h3>
+                            <button class="collection-button" data-category="clay-accessories">Explore Collection →</button>
+                        </div>
+                    </article>
                 </div>
-
             </div>
-
         </section>
 
-
-        <!-- ================================= -->
-        <!-- GALLERY COLLECTIONS -->
-        <!-- ================================= -->
-
-        <section id="gallery">
-
-            <div class="container">
-
-                <div class="section-title">
-
-                    <span>Gallery Collections</span>
-
-                    <h2>
-                        Explore My Creative Collection
-                    </h2>
-
-                    <p>
-                        Browse original artworks, commissioned pieces,
-                        portraits, and digital creations.
-                    </p>
-
+        <section id="galleryModal" class="gallery-modal hidden" aria-hidden="true">
+            <div class="gallery-modal-backdrop"></div>
+            <div class="gallery-modal-window">
+                <div class="gallery-modal-header">
+                    <div>
+                        <p class="section-label">Gallery Window</p>
+                        <h2 id="galleryModalTitle">Art Commissions</h2>
+                        <p class="gallery-modal-subtitle">Browse the collection in a calm Pinterest-style viewing window.</p>
+                    </div>
+                    <button class="modal-close" id="galleryModalClose" aria-label="Close gallery window">&times;</button>
                 </div>
-
-
-                <!-- FILTER BUTTONS -->
-
-                <div class="gallery-filter">
-
-                    <button class="active" data-filter="all">
-                        All
-                    </button>
-
-                    <button data-filter="painting">
-                        Paintings
-                    </button>
-
-                    <button data-filter="portrait">
-                        Portraits
-                    </button>
-
-                    <button data-filter="digital">
-                        Digital Art
-                    </button>
-
-                    <button data-filter="commission">
-                        Commissioned
-                    </button>
-
-                </div>
-
-
-
-                <!-- GALLERY GRID -->
-
-                <div class="gallery-grid">
-
-
-                    <!-- ITEM 1 -->
-
-                    <div class="gallery-item painting">
-
-                        <img src="images/gallery/art1.jpg"
-                            alt="Artwork 1">
-
-                        <div class="overlay">
-
-                            <h3>Golden Horizon</h3>
-
-                            <p>Acrylic on Canvas</p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ITEM 2 -->
-
-                    <div class="gallery-item portrait">
-
-                        <img src="images/gallery/art2.jpg"
-                            alt="Artwork 2">
-
-                        <div class="overlay">
-
-                            <h3>Silent Beauty</h3>
-
-                            <p>Portrait Commission</p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ITEM 3 -->
-
-                    <div class="gallery-item digital">
-
-                        <img src="images/gallery/art3.jpg"
-                            alt="Artwork 3">
-
-                        <div class="overlay">
-
-                            <h3>Dreamscape</h3>
-
-                            <p>Digital Illustration</p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ITEM 4 -->
-
-                    <div class="gallery-item commission">
-
-                        <img src="images/gallery/art4.jpg"
-                            alt="Artwork 4">
-
-                        <div class="overlay">
-
-                            <h3>Family Memories</h3>
-
-                            <p>Commissioned Painting</p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ITEM 5 -->
-
-                    <div class="gallery-item painting">
-
-                        <img src="images/gallery/art5.jpg"
-                            alt="Artwork 5">
-
-                        <div class="overlay">
-
-                            <h3>Nature's Whisper</h3>
-
-                            <p>Oil Painting</p>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- ITEM 6 -->
-
-                    <div class="gallery-item digital">
-
-                        <img src="images/gallery/art6.jpg"
-                            alt="Artwork 6">
-
-                        <div class="overlay">
-
-                            <h3>Modern Soul</h3>
-
-                            <p>Digital Artwork</p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="gallery-button">
-
-                    <a href="#" class="btn">
-
-                        View More Artworks
-
-                    </a>
-
-                </div>
-
+                <div class="gallery-modal-grid" id="galleryModalGrid"></div>
             </div>
-
         </section>
 
-
-
-        <!-- ================================= -->
-        <!-- LIGHTBOX -->
-        <!-- ================================= -->
-
-        <div id="lightbox">
-
-            <span class="close-lightbox">&times;</span>
-
-            <img id="lightbox-img" src="" alt="Artwork Preview">
-
-            <div id="lightbox-caption"></div>
-
-        </div>
-
-
-
-```html
-<!-- ================================= -->
-<!-- CONTACT -->
-<!-- ================================= -->
-
-<section id="contact">
-
-    <div class="container contact-grid">
-
-        <!-- CONTACT INFORMATION -->
-
-        <div class="contact-info">
-
-            <span>Let's Connect</span>
-
-            <h2>
-                Let's Bring Your Ideas to Life
-            </h2>
-
-            <p>
-
-                Whether you're interested in commissioning a custom artwork,
-                collaborating on a creative project, or simply want to connect,
-                I'd love to hear from you.
-
-                Feel free to send me a message through the contact form or reach
-                me through any of my social media platforms.
-
-            </p>
-
-
-            <div class="contact-details">
-
-                <div class="contact-item">
-
-                    <i class="fa-solid fa-location-dot"></i>
-
-                    <div>
-
-                        <h4>Locations</h4>
-
-                        <p>Naga City, Camarines Sur</p>
-
-                        <p>Binangonan, Rizal</p>
-
+        <section id="contact" class="contact reveal">
+            <div class="container contact-grid">
+                <div class="contact-copy contact-info-panel">
+                    <p class="section-label">Contact</p>
+                    <h2>Reach out directly</h2>
+                    <p>For commissions, collaborations, or new design inquiries, I will respond as soon as possible.</p>
+                    <div class="contact-list">
+                        <article class="contact-item">
+                            <img src="assets/icons/email.png" alt="Email icon" class="contact-icon">
+                            <div>
+                                <strong>Email</strong>
+                                <a href="mailto:katrinafelicidario@gmail.com">katrinafelicidario@gmail.com</a>
+                            </div>
+                        </article>
+                        <article class="contact-item">
+                            <img src="assets/icons/phone.png" alt="Phone icon" class="contact-icon">
+                            <div>
+                                <strong>Phone</strong>
+                                <a href="tel:09386401605">09386401605</a>
+                            </div>
+                        </article>
+                        <article class="contact-item">
+                            <img src="assets/icons/facebook.png" alt="Facebook icon" class="contact-icon">
+                            <div>
+                                <strong>Facebook</strong>
+                                <a href="https://www.facebook.com/100063620928542/" target="_blank" rel="noreferrer">facebook.com/disen.you</a>
+                            </div>
+                        </article>
+                        <article class="contact-item">
+                            <img src="assets/icons/instagram.png" alt="Instagram icon" class="contact-icon">
+                            <div>
+                                <strong>Instagram</strong>
+                                <a href="https://www.instagram.com/disen.you" target="_blank" rel="noreferrer">@disen.you</a>
+                            </div>
+                        </article>
+                        <article class="contact-item">
+                            <img src="assets/icons/tiktok.png" alt="TikTok icon" class="contact-icon">
+                            <div>
+                                <strong>TikTok</strong>
+                                <a href="https://www.tiktok.com/@disen.you" target="_blank" rel="noreferrer">@disen.you</a>
+                            </div>
+                        </article>
                     </div>
-
                 </div>
 
-
-                <div class="contact-item">
-
-                    <i class="fa-brands fa-facebook-f"></i>
-
-                    <div>
-
-                        <h4>Facebook</h4>
-
-                        <a href="https://www.facebook.com/100063620928542/"
-                           target="_blank">
-                            facebook.com/disen.you
-                        </a>
-
-                    </div>
-
+                <div class="contact-form-wrapper">
+                    <form id="contactForm" class="contact-form">
+                        <p class="section-label">Send a message</p>
+                        <h2>Leave a comment or suggestion</h2>
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your idea" required></textarea>
+                        <button type="submit" class="button button-primary">Send Inquiry</button>
+                        <p class="form-note" id="contactStatus"></p>
+                    </form>
                 </div>
-
-
-                <div class="contact-item">
-
-                    <i class="fa-brands fa-instagram"></i>
-
-                    <div>
-
-                        <h4>Instagram</h4>
-
-                        <a href="https://www.instagram.com/disen.you?igsh=MXU0MGd6MmU3djlv"
-                           target="_blank">
-                            @disen.you
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <div class="contact-item">
-
-                    <i class="fa-brands fa-tiktok"></i>
-
-                    <div>
-
-                        <h4>TikTok</h4>
-
-                        <a href="https://www.tiktok.com/@disen.you?_r=1&_t=ZS-966TGuUDHmb"
-                           target="_blank">
-                            @disen.you
-                        </a>
-
-                    </div>
-
-                </div>
-
             </div>
+        </section>
+    </main>
 
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/logo/logo.png" alt="Disen.You logo">
+                <span>Disen.You</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.facebook.com/100063620928542/" target="_blank" rel="noreferrer">Facebook</a>
+                <a href="https://www.instagram.com/disen.you" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="https://www.tiktok.com/@disen.you" target="_blank" rel="noreferrer">TikTok</a>
+            </div>
+            <p class="footer-copy">© 2026 Disen.You. All rights reserved.</p>
         </div>
+    </footer>
 
-
-
-        <!-- CONTACT FORM -->
-
-<div class="contact-form">
-
-    <form id="contactForm">
-
-        <input
-            type="text"
-            id="name"
-            placeholder="Your Name"
-            required>
-
-        <input
-            type="email"
-            id="email"
-            placeholder="Your Email"
-            required>
-
-        <input
-            type="text"
-            id="subject"
-            placeholder="Subject"
-            required>
-
-        <textarea
-            id="message"
-            rows="7"
-            placeholder="Tell me about your artwork..."
-            required></textarea>
-
-        <button
-            type="submit"
-            class="btn">
-
-            Send Inquiry
-
-        </button>
-
-    </form>
-
-    <p class="email-direct">
-
-        Or email directly at
-
-        <a href="mailto:YOUR_EMAIL@gmail.com">
-            katrinafelicidario@gmail.com
-        </a>
-
-    </p>
-
-</div>
-```
-
-
-</section>
-
-
-
-<!-- ================================= -->
-<!-- FOOTER -->
-<!-- ================================= -->
-
-<footer>
-
-    <div class="container">
-
-        <img src="images/logo.png"
-             alt="Disen.You Logo">
-
-        <h3>Disen.You</h3>
-
-        <p>
-
-            Every artwork tells a story.
-
-            Thank you for visiting my virtual gallery and supporting
-            local art.
-
-        </p>
-
-
-
-        <div class="social-links">
-
-            <a href="https://www.facebook.com/100063620928542/"
-               target="_blank">
-
-                <i class="fab fa-facebook-f"></i>
-
-            </a>
-
-            <a href="https://www.instagram.com/disen.you?igsh=MXU0MGd6MmU3djlv"
-               target="_blank">
-
-                <i class="fab fa-instagram"></i>
-
-            </a>
-
-            <a href="https://www.tiktok.com/@disen.you?_r=1&_t=ZS-966TGuUDHmb"
-               target="_blank">
-
-                <i class="fab fa-tiktok"></i>
-
-            </a>
-
+    <div class="viewer-modal hidden" id="artworkViewer" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="viewer-backdrop"></div>
+        <div class="viewer-panel">
+            <button class="viewer-close" id="viewerClose" aria-label="Close artwork viewer">&times;</button>
+            <div class="viewer-media">
+                <img src="assets/images/hero/hero-main.webp" alt="Artwork preview" loading="lazy">
+            </div>
+            <div class="viewer-details">
+                <p class="section-label">Artwork Viewer</p>
+                <h2 class="viewer-title">Eternal Thread</h2>
+                <ul class="art-details viewer-info">
+                    <li><strong>Medium</strong> <span class="viewer-medium">Hand-painted canvas & natural fibers</span></li>
+                    <li><strong>Year</strong> <span class="viewer-year">2026</span></li>
+                </ul>
+                <p class="viewer-description">A wearable composition that balances warm tones and subtle movement.</p>
+                <div class="viewer-actions">
+                    <button class="button button-secondary" id="viewerPrev">Previous</button>
+                    <button class="button button-primary" id="viewerNext">Next</button>
+                </div>
+            </div>
         </div>
-
-
-
-        <p class="copyright">
-
-            © 2026 Disen.You
-
-            All Rights Reserved.
-
-        </p>
-
     </div>
 
-</footer>
-
-
-
-
-<script src="assets/js/loader.js"></script>
-
-<script src="assets/js/popup.js"></script>
-
-<script src="assets/js/navbar.js"></script>
-
-<script src="assets/js/animations.js"></script>
-
-<script src="assets/js/script.js"></script>
-
+    <div id="adminTrigger" class="admin-trigger" aria-label="Admin login"></div>
+    <div id="adminModal" class="admin-modal hidden" aria-hidden="true">
+        <div class="admin-backdrop"></div>
+        <div class="admin-panel">
+            <button id="adminClose" class="modal-close" aria-label="Close admin login">&times;</button>
+            <h2>Admin login</h2>
+            <p>Enter credentials to open the upload interface.</p>
+            <form id="adminLoginForm" class="admin-login-form">
+                <label for="adminUser">Username</label>
+                <input type="text" id="adminUser" name="adminUser" placeholder="admin" required>
+                <label for="adminPass">Password</label>
+                <input type="password" id="adminPass" name="adminPass" placeholder="Password" required>
+                <button type="submit" class="button button-primary">Login</button>
+                <p id="adminLoginStatus" class="form-note"></p>
+            </form>
+            <div id="adminPanelContent" class="admin-panel-content hidden">
+                <h3>Collection upload</h3>
+                <p>Ready for Firebase + Cloudinary integration.</p>
+                <label for="adminImageUrl">Image URL</label>
+                <input type="url" id="adminImageUrl" name="adminImageUrl" placeholder="https://...">
+                <label for="adminTitle">Title</label>
+                <input type="text" id="adminTitle" name="adminTitle" placeholder="Artwork title">
+                <label for="adminCategory">Category</label>
+                <select id="adminCategory" name="adminCategory">
+                    <option value="art-commissions">Art Commissions</option>
+                    <option value="face-painting">Face Painting Works</option>
+                    <option value="clay-accessories">Clay Accessories</option>
+                </select>
+                <label for="adminMedium">Medium</label>
+                <input type="text" id="adminMedium" name="adminMedium" placeholder="Medium">
+                <label for="adminYear">Year</label>
+                <input type="text" id="adminYear" name="adminYear" placeholder="2026">
+                <label for="adminDescription">Description</label>
+                <textarea id="adminDescription" name="adminDescription" rows="4" placeholder="Artwork description"></textarea>
+                <button type="button" class="button button-secondary" id="adminSave">Save artwork</button>
+                <p id="adminSaveStatus" class="form-note"></p>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/gallery-data.js"></script>
+    <script src="assets/js/loader.js"></script>
+    <script src="assets/js/popup.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
