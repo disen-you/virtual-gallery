@@ -1,421 +1,288 @@
-```javascript
-/* ==========================================
-   DISEN.YOU
-   SCRIPT.JS
-========================================== */
+const categoryNames = defaultCategoryNames;
+let galleryData = getSavedGalleryData();
+let currentIndex = 0;
+let featuredIndex = getSavedFeaturedIndex();
 
+document.addEventListener('DOMContentLoaded', () => {
+    const collectionButtons = document.querySelectorAll('.collection-button');
+    const viewer = document.getElementById('artworkViewer');
+    const viewerBackdrop = viewer?.querySelector('.viewer-backdrop');
+    const viewerClose = document.getElementById('viewerClose');
+    const viewerPrev = document.getElementById('viewerPrev');
+    const viewerNext = document.getElementById('viewerNext');
+    const viewerImg = viewer?.querySelector('.viewer-media img');
+    const viewerTitle = viewer?.querySelector('.viewer-title');
+    const viewerMedium = viewer?.querySelector('.viewer-medium');
+    const viewerYear = viewer?.querySelector('.viewer-year');
+    const viewerDescription = viewer?.querySelector('.viewer-description');
+    const featuredView = document.querySelector('[data-view-index]');
+    const contactForm = document.getElementById('contactForm');
+    const contactStatus = document.getElementById('contactStatus');
+    const adminTrigger = document.getElementById('adminTrigger');
+    const adminModal = document.getElementById('adminModal');
+    const adminBackdrop = adminModal?.querySelector('.admin-backdrop');
+    const adminClose = document.getElementById('adminClose');
+    const adminLoginForm = document.getElementById('adminLoginForm');
+    const adminLoginStatus = document.getElementById('adminLoginStatus');
+    const adminPanelContent = document.getElementById('adminPanelContent');
+    const adminSave = document.getElementById('adminSave');
+    const adminSaveStatus = document.getElementById('adminSaveStatus');
+    const adminImageUrl = document.getElementById('adminImageUrl');
+    const adminTitle = document.getElementById('adminTitle');
+    const adminCategory = document.getElementById('adminCategory');
+    const adminMedium = document.getElementById('adminMedium');
+    const adminYear = document.getElementById('adminYear');
+    const adminDescription = document.getElementById('adminDescription');
+    const galleryModal = document.getElementById('galleryModal');
+    const galleryModalClose = document.getElementById('galleryModalClose');
+    const galleryModalTitle = document.getElementById('galleryModalTitle');
+    const galleryModalGrid = document.getElementById('galleryModalGrid');
 
-/* ==============================
-   LOADING SCREEN
-============================== */
+    const setFeaturedArtwork = (index) => {
+        const item = galleryData[index];
+        if (!item) return;
+        featuredIndex = index;
+        window.featuredIndex = featuredIndex;
 
-window.addEventListener("load", () => {
+        const featuredImg = document.querySelector('.about-feature-card img');
+        const featuredTitle = document.querySelector('.feature-overlay h3');
+        const featuredMeta = document.querySelector('.feature-meta');
+        const featureButton = document.querySelector('.feature-overlay button');
+        if (featuredImg) {
+            featuredImg.src = item.image;
+            featuredImg.alt = item.title;
+        }
+        if (featuredTitle) featuredTitle.textContent = item.title;
+        if (featuredMeta) featuredMeta.textContent = `${item.medium} · ${item.year}`;
+        if (featureButton) featureButton.dataset.viewIndex = index;
+    };
 
-    const loader = document.getElementById("loader");
+    window.setFeaturedArtwork = setFeaturedArtwork;
 
-    setTimeout(() => {
+    const openViewer = (index) => {
+        const item = galleryData[index];
+        if (!item || !viewer) return;
+        currentIndex = index;
+        if (viewerImg) viewerImg.src = item.image;
+        if (viewerImg) viewerImg.alt = item.title;
+        if (viewerTitle) viewerTitle.textContent = item.title;
+        if (viewerMedium) viewerMedium.textContent = item.medium;
+        if (viewerYear) viewerYear.textContent = item.year;
+        if (viewerDescription) viewerDescription.textContent = item.description;
+        viewer.classList.remove('hidden');
+        viewer.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+    };
 
-        loader.style.opacity = "0";
+    const closeViewer = () => {
+        if (!viewer) return;
+        viewer.classList.add('hidden');
+        viewer.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('no-scroll');
+    };
 
-        loader.style.visibility = "hidden";
+    const showNext = () => {
+        const nextIndex = (currentIndex + 1) % galleryData.length;
+        openViewer(nextIndex);
+    };
 
-        loader.style.transition = "0.8s";
+    const showPrev = () => {
+        const prevIndex = (currentIndex - 1 + galleryData.length) % galleryData.length;
+        openViewer(prevIndex);
+    };
 
-        document.body.style.overflow = "auto";
+    const buildGalleryModal = (category) => {
+        if (!galleryModalGrid || !galleryModalTitle || !galleryModal) return;
+        const categoryName = categoryNames[category] || 'Gallery';
+        galleryModalTitle.textContent = categoryName;
+        galleryModalGrid.innerHTML = galleryData
+            .filter((item) => item.category === category)
+            .map((item, index) => {
+                return `
+                    <article class="gallery-modal-item" data-index="${index}">
+                        <img src="${item.image}" alt="${item.title}" loading="lazy">
+                        <div class="gallery-modal-caption">
+                            <h3>${item.title}</h3>
+                            <p>${item.medium}</p>
+                        </div>
+                    </article>
+                `;
+            })
+            .join('');
 
-    }, 1800);
-
-});
-
-
-
-/* ==============================
-   MEET THE ARTIST POPUP
-============================== */
-
-const popup = document.getElementById("artistPopup");
-
-const closePopup = document.getElementById("closePopup");
-
-const enterGallery = document.getElementById("enterGallery");
-
-
-window.addEventListener("load", () => {
-
-    setTimeout(() => {
-
-        popup.classList.add("active");
-
-    }, 2000);
-
-});
-
-
-closePopup.addEventListener("click", () => {
-
-    popup.classList.remove("active");
-
-});
-
-
-enterGallery.addEventListener("click", () => {
-
-    popup.classList.remove("active");
-
-});
-
-
-
-/* ==============================
-   SMOOTH SCROLL
-============================== */
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-    anchor.addEventListener("click", function(e){
-
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if(target){
-
-            target.scrollIntoView({
-
-                behavior:"smooth"
-
+        const modalItems = galleryModalGrid.querySelectorAll('.gallery-modal-item');
+        modalItems.forEach((item) => {
+            const itemIndex = Number(item.dataset.index);
+            item.addEventListener('click', () => {
+                closeGalleryModal();
+                openViewer(itemIndex);
             });
-
-        }
-
-    });
-
-});
-
-
-
-/* ==============================
-   ACTIVE NAVIGATION
-============================== */
-
-const sections = document.querySelectorAll("section");
-
-const navLinks = document.querySelectorAll("nav ul li a");
-
-
-window.addEventListener("scroll", ()=>{
-
-    let current = "";
-
-    sections.forEach(section=>{
-
-        const sectionTop = section.offsetTop - 150;
-
-        const sectionHeight = section.clientHeight;
-
-        if(pageYOffset >= sectionTop){
-
-            current = section.getAttribute("id");
-
-        }
-
-    });
-
-    navLinks.forEach(link=>{
-
-        link.classList.remove("active");
-
-        if(link.getAttribute("href") === "#" + current){
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-});
-
-
-
-/* ==============================
-   HEADER SHADOW
-============================== */
-
-const header = document.querySelector("header");
-
-window.addEventListener("scroll",()=>{
-
-    if(window.scrollY > 40){
-
-        header.style.boxShadow="0 10px 30px rgba(0,0,0,.08)";
-
-    }
-
-    else{
-
-        header.style.boxShadow="none";
-
-    }
-
-});
-
-
-
-/* ==============================
-   BUTTON RIPPLE EFFECT
-============================== */
-
-document.querySelectorAll(".btn").forEach(button=>{
-
-button.addEventListener("mouseenter",()=>{
-
-button.style.transform="translateY(-3px) scale(1.02)";
-
-});
-
-button.addEventListener("mouseleave",()=>{
-
-button.style.transform="translateY(0)";
-
-});
-
-});
-
-
-
-/* ==============================
-   IMAGE HOVER ANIMATION
-============================== */
-
-document.querySelectorAll(".gallery-item img").forEach(image=>{
-
-image.addEventListener("mouseover",()=>{
-
-image.style.transform="scale(1.08)";
-
-});
-
-image.addEventListener("mouseout",()=>{
-
-image.style.transform="scale(1)";
-
-});
-
-});
-
-
-
-/* ==============================
-   PREVENT EMPTY LINKS
-============================== */
-
-document.querySelectorAll("a[href='#']").forEach(link=>{
-
-link.addEventListener("click",(e)=>{
-
-e.preventDefault();
-
-});
-
-});
-
-```javascript
-/* ==========================================
-   GALLERY FILTER
-========================================== */
-
-const filterButtons = document.querySelectorAll(".gallery-filter button");
-const galleryItems = document.querySelectorAll(".gallery-item");
-
-filterButtons.forEach(button => {
-
-    button.addEventListener("click", () => {
-
-        filterButtons.forEach(btn => btn.classList.remove("active"));
-
-        button.classList.add("active");
-
-        const filter = button.dataset.filter;
-
-        galleryItems.forEach(item => {
-
-            if (filter === "all" || item.classList.contains(filter)) {
-
-                item.style.display = "block";
-
-                setTimeout(() => {
-
-                    item.style.opacity = "1";
-                    item.style.transform = "scale(1)";
-
-                }, 100);
-
-            } else {
-
-                item.style.opacity = "0";
-                item.style.transform = "scale(.9)";
-
-                setTimeout(() => {
-
-                    item.style.display = "none";
-
-                }, 250);
-
-            }
-
         });
+    };
 
+    const openGalleryModal = (category) => {
+        if (!galleryModal) return;
+        buildGalleryModal(category);
+        galleryModal.classList.remove('hidden');
+        galleryModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+    };
+
+    const closeGalleryModal = () => {
+        if (!galleryModal) return;
+        galleryModal.classList.add('hidden');
+        galleryModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('no-scroll');
+    };
+
+    collectionButtons.forEach((button) => {
+        button.addEventListener('click', (event) => {
+            event.preventDefault();
+            const category = button.dataset.category || 'art-commissions';
+            openGalleryModal(category);
+        });
     });
 
-});
-
-
-/* ==========================================
-   LIGHTBOX
-========================================== */
-
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = document.getElementById("lightbox-img");
-const lightboxCaption = document.getElementById("lightbox-caption");
-const closeLightbox = document.querySelector(".close-lightbox");
-
-galleryItems.forEach(item => {
-
-    item.addEventListener("click", () => {
-
-        const img = item.querySelector("img");
-
-        const title = item.querySelector("h3").textContent;
-
-        lightbox.style.display = "flex";
-
-        lightboxImg.src = img.src;
-
-        lightboxCaption.textContent = title;
-
-        document.body.style.overflow = "hidden";
-
+    featuredView?.addEventListener('click', () => {
+        openViewer(featuredIndex);
     });
 
-});
+    setFeaturedArtwork(0);
 
-closeLightbox.addEventListener("click", () => {
+    galleryModalClose?.addEventListener('click', closeGalleryModal);
+    galleryModal?.addEventListener('click', (event) => {
+        if (event.target === galleryModal) {
+            closeGalleryModal();
+        }
+    });
 
-    lightbox.style.display = "none";
+    viewerClose?.addEventListener('click', closeViewer);
+    viewerBackdrop?.addEventListener('click', closeViewer);
+    viewerNext?.addEventListener('click', showNext);
+    viewerPrev?.addEventListener('click', showPrev);
 
-    document.body.style.overflow = "auto";
+    document.addEventListener('keydown', (event) => {
+        if (viewer && !viewer.classList.contains('hidden')) {
+            if (event.key === 'Escape') closeViewer();
+            if (event.key === 'ArrowRight') showNext();
+            if (event.key === 'ArrowLeft') showPrev();
+        }
+        if (galleryModal && !galleryModal.classList.contains('hidden')) {
+            if (event.key === 'Escape') closeGalleryModal();
+        }
+    });
 
-});
+    contactForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        contactStatus.textContent = 'Thank you. Your inquiry is ready to send.';
+        const royalColor = getComputedStyle(document.documentElement).getPropertyValue('--royal') || '#183A67';
+        contactStatus.style.color = royalColor.trim();
+        contactForm.reset();
+    });
 
-lightbox.addEventListener("click", e => {
+    const openAdminModal = () => {
+        if (!adminModal) return;
+        adminModal.classList.remove('hidden');
+        adminModal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('no-scroll');
+    };
 
-    if (e.target === lightbox) {
+    const closeAdminModal = () => {
+        if (!adminModal) return;
+        adminModal.classList.add('hidden');
+        adminModal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('no-scroll');
+        adminLoginForm?.reset();
+        if (adminPanelContent) adminPanelContent.classList.add('hidden');
+        if (adminLoginStatus) adminLoginStatus.textContent = '';
+        if (adminSave) adminSave.textContent = 'Save artwork';
+    };
 
-        lightbox.style.display = "none";
+    adminTrigger?.addEventListener('click', openAdminModal);
+    adminClose?.addEventListener('click', closeAdminModal);
+    adminBackdrop?.addEventListener('click', closeAdminModal);
+    adminModal?.addEventListener('click', (event) => {
+        if (event.target === adminModal) {
+            closeAdminModal();
+        }
+    });
 
-        document.body.style.overflow = "auto";
+    adminLoginForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const username = adminLoginForm.adminUser.value.trim();
+        const password = adminLoginForm.adminPass.value.trim();
 
-    }
+        if (username === 'admin' && password === 'password123') {
+            if (adminLoginStatus) {
+                adminLoginStatus.textContent = 'Login successful. Opening admin panel...';
+                adminLoginStatus.style.color = 'var(--royal)';
+            }
+            closeAdminModal();
+            window.open('admin.html', '_blank');
+        } else {
+            if (adminLoginStatus) {
+                adminLoginStatus.textContent = 'Invalid login. Please try again.';
+                adminLoginStatus.style.color = '#d92f2f';
+            }
+        }
+    });
 
-});
+    adminSave?.addEventListener('click', () => {
+        if (!adminImageUrl || !adminTitle || !adminCategory) return;
 
-
-/* ==========================================
-   SCROLL REVEAL
-========================================== */
-
-const revealElements = document.querySelectorAll(
-    ".hero,.section-title,.featured-grid,.gallery-item,.service-card,.contact-grid"
-);
-
-function revealOnScroll() {
-
-    revealElements.forEach(el => {
-
-        const windowHeight = window.innerHeight;
-
-        const revealTop = el.getBoundingClientRect().top;
-
-        if (revealTop < windowHeight - 100) {
-
-            el.classList.add("active");
-            el.classList.add("reveal");
-
+        if (!adminImageUrl.value.trim() || !adminTitle.value.trim()) {
+            if (adminSaveStatus) {
+                adminSaveStatus.textContent = 'Please add at least an image URL and title.';
+                adminSaveStatus.style.color = '#d92f2f';
+            }
+            return;
         }
 
-    });
+        const newArtwork = {
+            category: adminCategory.value,
+            title: adminTitle.value.trim(),
+            medium: adminMedium?.value.trim() || 'Mixed media',
+            year: adminYear?.value.trim() || '2026',
+            description: adminDescription?.value.trim() || 'New collection artwork.',
+            image: adminImageUrl.value.trim(),
+        };
 
-}
+        galleryData.push(newArtwork);
 
-window.addEventListener("scroll", revealOnScroll);
-
-revealOnScroll();
-
-
-/* ==========================================
-   PARALLAX HERO IMAGE
-========================================== */
-
-const heroImage = document.querySelector(".hero-image img");
-
-window.addEventListener("scroll", () => {
-
-    if (heroImage) {
-
-        let offset = window.scrollY * 0.08;
-
-        heroImage.style.transform =
-            `translateY(${offset}px)`;
-
-    }
-
-});
-
-
-/* ==========================================
-   IMAGE FADE-IN
-========================================== */
-
-const images = document.querySelectorAll("img");
-
-const imageObserver = new IntersectionObserver(entries => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-
-            entry.target.style.opacity = "1";
-
-            entry.target.style.transform = "translateY(0)";
-
+        if (adminSaveStatus) {
+            adminSaveStatus.textContent = 'Artwork added locally. Firebase upload can be wired here.';
+            adminSaveStatus.style.color = 'var(--royal)';
         }
 
+        adminImageUrl.value = '';
+        adminTitle.value = '';
+        if (adminMedium) adminMedium.value = '';
+        if (adminYear) adminYear.value = '';
+        if (adminDescription) adminDescription.value = '';
     });
 
+    window.addEventListener('storage', (event) => {
+        if (event.key === storageKey) {
+            galleryData = getSavedGalleryData();
+            setFeaturedArtwork(getSavedFeaturedIndex());
+        }
+        if (event.key === featuredKey) {
+            featuredIndex = getSavedFeaturedIndex();
+            setFeaturedArtwork(featuredIndex);
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (viewer && !viewer.classList.contains('hidden')) {
+            if (event.key === 'Escape') closeViewer();
+            if (event.key === 'ArrowRight') showNext();
+            if (event.key === 'ArrowLeft') showPrev();
+        }
+        if (galleryModal && !galleryModal.classList.contains('hidden')) {
+            if (event.key === 'Escape') closeGalleryModal();
+        }
+        if (adminModal && !adminModal.classList.contains('hidden')) {
+            if (event.key === 'Escape') closeAdminModal();
+        }
+    });
 });
-
-images.forEach(img => {
-
-    img.style.opacity = "0";
-
-    img.style.transform = "translateY(25px)";
-
-    img.style.transition = ".8s";
-
-    imageObserver.observe(img);
-
-});
-
-
-/* ==========================================
-   NUMBER OF ARTWORKS
-========================================== */
-
-console.log(
-    "Total Gallery Items:",
-    galleryItems.length
-);
-
-
-
-
