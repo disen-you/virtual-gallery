@@ -1,1 +1,85 @@
+@media (max-width: 1120px) {
+    .hero-grid,
+    .about-grid,
+    .featured-grid,
+    .viewer-panel {
+        grid-template-columns: 1fr;
+    }
+
+    .collection-card {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 860px) {
+    section {
+        padding: 80px 6%;
+    }
+
+    header {
+        padding: 18px 6%;
+    }
+
+    nav {
+        gap: 24px;
+    }
+
+    .gallery-grid {
+        column-count: 2;
+    }
+
+    .collections-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    section {
+        padding: 60px 5%;
+    }
+
+    .hero-copy h1,
+    .about-copy h2,
+    .featured-copy h2,
+    .contact-copy h2 {
+        font-size: clamp(2.2rem, 6vw, 3rem);
+    }
+
+    .hero-grid,
+    .about-grid,
+    .featured-grid {
+        gap: 2rem;
+    }
+
+    .gallery-grid {
+        column-count: 1;
+    }
+
+    .gallery-filter {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .popup-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .popup-copy {
+        padding: 2rem;
+    }
+
+    .popup-close {
+        right: 18px;
+        top: 18px;
+    }
+
+    .viewer-panel {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+}
 
