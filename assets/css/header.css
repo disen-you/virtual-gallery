@@ -1,212 +1,71 @@
-/* ==========================================
-   HEADER
-   Disen.You
-========================================== */
-
-header{
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    z-index:1000;
-
-    transition:.4s ease;
-
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 24px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.35s ease, box-shadow 0.35s ease, backdrop-filter 0.35s ease;
 }
 
-header.scrolled{
-
-    background:rgba(11,11,11,.72);
-
-    backdrop-filter:blur(18px);
-
-    -webkit-backdrop-filter:blur(18px);
-
-    border-bottom:1px solid rgba(255,255,255,.08);
-
+header.scrolled {
+    background: rgba(247, 245, 242, 0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(21, 21, 21, 0.06);
+    box-shadow: 0 10px 40px rgba(21, 21, 21, 0.04);
 }
 
-.header-container{
-
-    width:min(92%,1280px);
-
-    margin:auto;
-
-    height:90px;
-
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
 
-/* ==========================================
-LOGO
-========================================== */
-
-.logo{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:14px;
-
+.logo img {
+    width: 44px;
+    height: auto;
 }
 
-.logo img{
-
-    width:52px;
-
-    height:52px;
-
-    object-fit:contain;
-
-    transition:.35s;
-
+.logo span {
+    font-family: var(--heading);
+    letter-spacing: 0.18em;
+    font-size: 1.05rem;
+    text-transform: uppercase;
 }
 
-.logo:hover img{
-
-    transform:rotate(-8deg) scale(1.05);
-
+nav {
+    display: flex;
+    gap: 36px;
 }
 
-.logo span{
-
-    font-family:var(--heading);
-
-    font-size:2rem;
-
-    color:var(--white);
-
-    letter-spacing:.5px;
-
+nav a {
+    position: relative;
+    font-family: var(--nav);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.12em;
+    color: var(--text);
+    transition: color var(--transition);
 }
 
-/* ==========================================
-NAVIGATION
-========================================== */
-
-nav{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:50px;
-
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0;
+    height: 2px;
+    background: var(--gold);
+    transition: width 0.3s ease;
 }
 
-nav a{
-
-    position:relative;
-
-    color:var(--white);
-
-    font-size:.95rem;
-
-    font-weight:500;
-
-    letter-spacing:1px;
-
-    transition:.35s;
-
+nav a:hover {
+    color: var(--royal);
 }
 
-nav a:hover{
-
-    color:var(--gold);
-
-}
-
-nav a::after{
-
-    content:"";
-
-    position:absolute;
-
-    left:0;
-
-    bottom:-8px;
-
-    width:0;
-
-    height:2px;
-
-    background:var(--gold);
-
-    transition:.35s;
-
-}
-
-nav a:hover::after{
-
-    width:100%;
-
-}
-
-/* ==========================================
-MOBILE MENU
-========================================== */
-
-.menu-btn{
-
-    display:none;
-
-    width:45px;
-
-    height:45px;
-
-    cursor:pointer;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
-
-.menu-btn span{
-
-    display:block;
-
-    width:24px;
-
-    height:2px;
-
-    background:white;
-
-    margin:5px 0;
-
-    transition:.35s;
-
-}
-
-/* ==========================================
-RESPONSIVE
-========================================== */
-
-@media(max-width:900px){
-
-nav{
-
-    display:none;
-
-}
-
-.menu-btn{
-
-    display:flex;
-
-    flex-direction:column;
-
-}
-
+nav a:hover::after {
+    width: 100%;
 }
