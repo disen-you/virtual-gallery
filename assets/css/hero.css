@@ -1,0 +1,81 @@
+.hero {
+    min-height: 100vh;
+    display: grid;
+    align-items: center;
+    padding-top: 120px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 4rem;
+    align-items: center;
+}
+
+.eyebrow {
+    display: inline-block;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    color: var(--muted);
+    font-size: 0.82rem;
+}
+
+.hero-copy h1 {
+    font-family: var(--heading);
+    font-size: clamp(3rem, 4.6vw, 5.4rem);
+    line-height: 0.95;
+    max-width: 12ch;
+    margin-bottom: 24px;
+}
+
+.hero-copy p {
+    max-width: 58ch;
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 34px;
+}
+
+.hero-frame {
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(247,245,242,0.92));
+    box-shadow: var(--shadow-soft);
+}
+
+.hero-frame img {
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 16px 30px;
+    transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    background: var(--black);
+    color: var(--white);
+}
+
+.button-primary:hover {
+    background: rgba(21, 21, 21, 0.88);
+}
+
+.button-secondary {
+    background: rgba(21, 21, 21, 0.04);
+    color: var(--text);
+    border: 1px solid rgba(21, 21, 21, 0.08);
+}
+
+.button-secondary:hover {
+    background: rgba(21, 21, 21, 0.08);
+}
