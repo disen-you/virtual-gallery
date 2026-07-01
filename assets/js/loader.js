@@ -1,11 +1,11 @@
-window.addEventListener("load",()=>{
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    const popup = document.getElementById('artist-popup');
 
-    const loader=document.getElementById("loader");
-
-    setTimeout(()=>{
-
-        loader.classList.add("hide");
-
-    },2500);
-
+    setTimeout(() => {
+        popup?.classList.remove('hidden');
+        setTimeout(() => {
+            loader.classList.add('hide');
+        }, 150);
+    }, 1200);
 });
