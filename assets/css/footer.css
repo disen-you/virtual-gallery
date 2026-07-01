@@ -1,1 +1,48 @@
+.site-footer {
+    padding: 4rem 8%;
+    background: #fff;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--heading);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text);
+}
+
+.footer-brand img {
+    width: 38px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--muted);
+    transition: color var(--transition);
+}
+
+.footer-links a:hover {
+    color: var(--black);
+}
+
+.footer-copy {
+    color: var(--muted);
+    font-size: 0.95rem;
+    grid-column: 1 / -1;
+    margin-top: 1.6rem;
+}
 
